@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loading... - Siddharth Goyal</title>
+    <meta name="description" content="Blog post by Siddharth Goyal">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#faf9f7">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="nav-brand">Siddharth Goyal</a>
+                <ul class="nav-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <a href="/blog/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Blog
+            </a>
+
+            <article id="post-container">
+                <p class="loading">Loading post...</p>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Siddharth Goyal</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadPost() {
+            const container = document.getElementById('post-container');
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+
+            if (!slug) {
+                container.innerHTML = '<p class="error">No post specified.</p>';
+                return;
+            }
+
+            try {
+                // Load posts.json to get post metadata
+                const postsResponse = await fetch('/blog/posts.json');
+                if (!postsResponse.ok) throw new Error('Failed to load posts metadata');
+
+                const posts = await postsResponse.json();
+                const post = posts.find(p => p.slug === slug);
+
+                if (!post) {
+                    container.innerHTML = '<p class="error">Post not found.</p>';
+                    document.title = 'Not Found - Siddharth Goyal';
+                    return;
+                }
+
+                // Load the markdown file
+                const mdResponse = await fetch(`/blog/posts/${slug}.md`);
+                if (!mdResponse.ok) throw new Error('Failed to load post content');
+
+                const markdown = await mdResponse.text();
+
+                // Configure marked
+                marked.setOptions({
+                    gfm: true,
+                    breaks: true,
+                    headerIds: true
+                });
+
+                // Render markdown to HTML
+                const content = marked.parse(markdown);
+
+                // Format date
+                const date = new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Update page title
+                document.title = `${post.title} - Siddharth Goyal`;
+
+                // Update meta description
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc && post.excerpt) {
+                    metaDesc.setAttribute('content', post.excerpt);
+                }
+
+                // Render the post
+                container.innerHTML = `
+          <header class="post-header">
+            <h1>${post.title}</h1>
+            <p class="post-meta">${date}</p>
+          </header>
+          <div class="post-content">
+            ${content}
+          </div>
+        `;
+
+            } catch (error) {
+                console.error('Error loading post:', error);
+                container.innerHTML = '<p class="error">Failed to load post. Please try again later.</p>';
+            }
+        }
+
+        loadPost();
+    </script>
+</body>
+
+</html>

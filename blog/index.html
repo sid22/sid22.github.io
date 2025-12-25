@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog - Siddharth Goyal</title>
+    <meta name="description" content="Blog posts by Siddharth Goyal on technology, astronomy, and more.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sid22.dev/blog/">
+    <meta property="og:title" content="Blog - Siddharth Goyal">
+    <meta property="og:description" content="Blog posts by Siddharth Goyal on technology, astronomy, and more.">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#faf9f7">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="nav-brand">Siddharth Goyal</a>
+                <ul class="nav-links">
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/blog/" class="active">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">Blog</h1>
+
+            <div id="posts-container">
+                <p class="loading">Loading posts...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Siddharth Goyal</p>
+        </div>
+    </footer>
+
+    <script>
+        async function loadPosts() {
+            const container = document.getElementById('posts-container');
+
+            try {
+                const response = await fetch('/blog/posts.json');
+                if (!response.ok) throw new Error('Failed to load posts');
+
+                const posts = await response.json();
+
+                if (posts.length === 0) {
+                    container.innerHTML = '<p>No posts yet. Check back soon!</p>';
+                    return;
+                }
+
+                // Group posts by year
+                const postsByYear = {};
+                posts.forEach(post => {
+                    const year = new Date(post.date).getFullYear();
+                    if (!postsByYear[year]) postsByYear[year] = [];
+                    postsByYear[year].push(post);
+                });
+
+                // Sort years descending
+                const years = Object.keys(postsByYear).sort((a, b) => b - a);
+
+                let html = '';
+                years.forEach(year => {
+                    html += `<h2 class="posts-year">${year}</h2>`;
+                    html += '<ul class="posts-list">';
+
+                    // Sort posts by date descending within each year
+                    postsByYear[year].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                    postsByYear[year].forEach(post => {
+                        const date = new Date(post.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+
+                        html += `
+              <li class="post-item">
+                <a href="/blog/post.html?slug=${post.slug}" class="post-link">
+                  <h3 class="post-title">${post.title}</h3>
+                  <span class="post-meta">${date}</span>
+                  ${post.excerpt ? `<p class="post-excerpt">${post.excerpt}</p>` : ''}
+                </a>
+              </li>
+            `;
+                    });
+
+                    html += '</ul>';
+                });
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                container.innerHTML = '<p class="error">Failed to load posts. Please try again later.</p>';
+            }
+        }
+
+        loadPosts();
+    </script>
+</body>
+
+</html>

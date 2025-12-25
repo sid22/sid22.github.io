@@ -1,356 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-80497355-2"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "UA-80497355-2");
-    </script>
-    <title>
-      Siddharth - Personal Pertfolio website
-    </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Chrome, Firefox OS and Opera -->
-    <meta name="theme-color" content="#343a41" />
-    <!-- Windows Phone -->
-    <meta name="msapplication-navbutton-color" content="#343a41" />
-    <!-- iOS Safari -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="#343a41" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-      name="keywords"
-      content="META tags, Portfolio, Siddharth, Siddharth Goyal, sid22"
-    />
+  <title>Siddharth Goyal</title>
+  <meta name="description" content="Software Engineer. Building things and exploring ideas.">
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Siddharth - Personal Pertfolio website" />
-    <meta
-      name="description"
-      content="I am a software engineer. Visit my page to know more."
-    />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sid22.dev/">
+  <meta property="og:title" content="Siddharth Goyal">
+  <meta property="og:description" content="Software Engineer. Building things and exploring ideas.">
+  <meta property="og:image" content="https://sid22.dev/metaimg.png">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sid22.dev/" />
-    <meta
-      property="og:title"
-      content="Siddharth - Personal Pertfolio website"
-    />
-    <meta
-      property="og:description"
-      content="I am a software engineer. Visit my page to know more."
-    />
-    <meta property="og:image" content="metaimg.png" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://sid22.dev/">
+  <meta property="twitter:title" content="Siddharth Goyal">
+  <meta property="twitter:description" content="Software Engineer. Building things and exploring ideas.">
+  <meta property="twitter:image" content="https://sid22.dev/metaimg.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sid22.dev/" />
-    <meta
-      property="twitter:title"
-      content="Siddharth - Personal Pertfolio website"
-    />
-    <meta
-      property="twitter:description"
-      content="I am a software engineer. Visit my page to know more."
-    />
-    <meta property="twitter:image" content="metaimg.png" />
+  <!-- Theme -->
+  <meta name="theme-color" content="#faf9f7">
 
-    <style>
-      * {
-        /* box-sizing: inherit; */
-        transition-property: all;
-        transition-duration: 0.6s;
-        transition-timing-function: ease;
-      }
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-      .btn {
-        color: #fff;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 45px;
-        margin: 0 0 2em;
-        max-width: 160px;
-        position: relative;
-        text-decoration: none;
-        text-transform: uppercase;
-        width: 100%;
-      }
+  <link rel="stylesheet" href="styles.css">
 
-      @media (min-width: 600px) {
-        .btn {
-          margin: 0 1em 2em;
-        }
-      }
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80497355-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-80497355-2');
+  </script>
+</head>
 
-      .btn:hover {
-        text-decoration: none;
-      }
-
-      .btn-1 svg {
-        height: 55px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
-
-      .btn-1 rect {
-        fill: none;
-        stroke: #fff;
-        stroke-width: 2;
-        stroke-dasharray: 422, 0;
-        transition: all 0.35s linear;
-      }
-
-      .btn-1:hover {
-        background: rgba(225, 51, 45, 0);
-        font-weight: 900;
-        letter-spacing: 1px;
-      }
-
-      .btn-1:hover rect {
-        stroke-width: 5;
-        stroke-dasharray: 15, 310;
-        stroke-dashoffset: 48;
-        transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
-      }
-
-      body {
-        font-family: "Baloo Paaji 2", cursive;
-        background-color: #141414;
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEyMCc+Cgk8ZGVmcz4KCQk8cGF0dGVybiBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nYycgd2lkdGg9JzYwJyBoZWlnaHQ9JzEyMCcgeD0nMCcgeT0nMCcgdmlld0JveD0nMCAwIDUgMTAnPgoJCQk8cGF0aCBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nIzI5MjkyOScgc3Ryb2tlLXdpZHRoPScwLjA5JyBkPSdNLTIsMUw3LDEwTS0yLDZMNywxNU0tMiwtNEw3LDUnLz4KCQk8L3BhdHRlcm4+CgkJPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgaWQ9J2MyJyB3aWR0aD0nNjAnIGhlaWdodD0nMTIwJyB4PScxMDAlJyB5PScwJyB2aWV3Qm94PScwIDAgNSAxMCc+CgkJCTxwYXRoIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMjkyOTI5JyBzdHJva2Utd2lkdGg9JzAuMDknIGQ9J003LDFMLTIsMTBNNyw2TC0yLDE1TTcsLTRMLTIsNScvPgoJCTwvcGF0dGVybj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPSc1MCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNjKScvPgoJPHJlY3QgeD0nNTAlJyB3aWR0aD0nNTAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J3VybCgjYzIpJy8+Cjwvc3ZnPg==");
-
-        margin: 0;
-        padding: 10px;
-        overflow-x: hidden;
-        height: 100%;
-        font-weight: 300;
-        font-size: 20px;
-        line-height: 1.45;
-        color: #eee;
-        color: rgba(255, 255, 255, 0.85);
-
-        animation: fadeInAnimation ease 3s;
-        animation-iteration-count: 1;
-        animation-fill-mode: forwards;
-      }
-
-      @keyframes fadeInAnimation {
-        0% {
-          opacity: 0;
-        }
-
-        100% {
-          opacity: 1;
-        }
-      }
-
-      /* unvisited link */
-      a:link {
-        color: white;
-      }
-
-      /* visited link */
-      a:visited {
-        color: #40c92d;
-      }
-
-      /* mouse over link */
-      a:hover {
-        color: hotpink;
-      }
-
-      /* selected link */
-      a:active {
-        color: green;
-      }
-    </style>
-  </head>
-  <!-- #FFF6E9 -->
-  <!-- style="background-color: #A9A9A9;" -->
-
-  <body>
+<body>
+  <header>
     <div class="container">
-      <div class="row" style="margin-top: 1.5vw;">
-        <div class="col-md-6">
-          <div style="text-align: left; text-size-adjust: auto;">
-            <h1>Siddharth Goyal</h1>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div style="margin: 10px;">
-        <h3><span class="badge badge-pill badge-dark">About Me</span></h3>
-      </div>
-      <div class="row">
-        <div class="col">
-          <div class="card text-white bg-dark">
-            <div class="card-body">
-              Hello!<br />
-              I am senior software engineer at
-              <a href="https://www.rubrik.com/">Rubrik</a>. I
-              am currently based out of Bangalore, India 🇮🇳. As a programmer, I firmly
-              believe in constant improvement as a general technologist and
-              full-stack developer. I am passionate about Open source and have
-              contributed to OWASP. Other than programming I am very passionate
-              about Astronomy and English Literature.
-              <br>
-              I would love to connect for anything technology, astronomy or literature.
-              <!-- <p class="card-text">Hello!  I am software developer currently working at  as SDE-1. I
-                            currently live in Noida, India 🇮🇳 <br>
-                            As a programmer I firmly believe in constant improvment as a general technologist and
-                            fullstack
-                            developer. <br> I am passionate about Open source and have
-                            contributed to OWASP.
-                            <br><br>
-                            Other than programming I am very passionte about Astronomy and English Literature.</p> -->
-            </div>
-            <hr />
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div style="margin: 10px;">
-        <h3>
-          <span class="badge badge-pill badge-dark">Contact Information</span>
-        </h3>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">Email</h5>
-              <p class="card-text">
-                <a href="mailto:contact@sid22.dev?Subject=Hello!" target="_top"
-                  >contact@sid22.dev</a
-                >
-                <a href="mailto:goyal.siddharth22@gmail.com?Subject=Hello!" target="_top"
-                  >goyal.siddharth22@gmail.com</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 offset-md-1">
-          <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">LinkedIn</h5>
-              <p class="card-text">
-                <a href="https://www.linkedin.com/in/siddharth22/"
-                  ><img
-                    src="https://cdn1.iconfinder.com/data/icons/social-black-buttons/512/linkedin-512.png"
-                    style="width: 40px;"
-                  />
-                  siddharth22</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 offset-md-1">
-          <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">Github</h5>
-              <p class="card-text">
-                <a href="https://github.com/sid22"
-                  ><img
-                    src="https://upload.wikimedia.org/wikipedia/commons/d/d7/GitHub_font_awesome.svg"
-                    style="width: 40px;"
-                  />
-                  sid22</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div style="margin: 10px;">
-        <h3>
-          <span class="badge badge-pill badge-dark">Something else</span>
-        </h3>
-      </div>
-
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">My Talks</h5>
-              <p class="card-text">
-                <a href="http://talks.sid22.dev/" target="_top"
-                  >https://talks.sid22.dev/</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 offset-md-1">
-          <!-- <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">LinkedIn</h5>
-              <p class="card-text">
-                <a href="https://www.linkedin.com/in/siddharth22/"
-                  ><img
-                    src="https://cdn1.iconfinder.com/data/icons/social-black-buttons/512/linkedin-512.png"
-                    style="width: 40px;"
-                  />
-                  siddharth22</a
-                >
-              </p>
-            </div>
-          </div> -->
-        </div>
-        <div class="col-md-3 offset-md-1">
-          <!-- <div class="card text-white bg-dark mb-3" style="min-height: 115px;">
-            <div class="card-body">
-              <h5 class="card-title">Github</h5>
-              <p class="card-text">
-                <a href="https://github.com/sid22"
-                  ><img
-                    src="https://upload.wikimedia.org/wikipedia/commons/d/d7/GitHub_font_awesome.svg"
-                    style="width: 40px;"
-                  />
-                  sid22</a
-                >
-              </p>
-            </div>
-          </div> -->
-        </div>
-      </div>
+      <nav>
+        <a href="/" class="nav-brand">Siddharth Goyal</a>
+        <ul class="nav-links">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/blog/" class="nav-btn">Blog</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" -->
-    <!-- crossorigin="anonymous"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" -->
-    <!-- crossorigin="anonymous"></script> -->
-  </body>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Siddharth Goyal</h1>
+        <p class="hero-subtitle">Software Engineer</p>
+        <p class="hero-bio">
+          I'm currently a senior software engineer at <a href="https://www.rubrik.com/" target="_blank"
+            rel="noopener">Rubrik</a>,
+          based in Bangalore, India. I believe in constant improvement as a generalist developer and
+          am passionate about building impactful products.
+        </p>
+        <p class="hero-bio">
+          Beyond code, I'm deeply interested in Astronomy and English Literature.
+          I'd love to connect about technology, the cosmos, or anything in between.
+        </p>
+
+        <div class="highlights">
+          <h3>Highlights</h3>
+          <ul>
+            <li>
+              Speaker at <a href="https://www.youtube.com/watch?v=t4P8tr6m0ns" target="_blank" rel="noopener">PyCon
+                India 2020</a> — Talk on Serverless Computing
+            </li>
+            <li>
+              Patent filed at Rubrik — Immutable Data Recovery in Masterless Systems (USPTO: 18/790,378)
+            </li>
+          </ul>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/sid22" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/siddharth22/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+          <a href="mailto:contact@sid22.dev" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Siddharth Goyal</p>
+    </div>
+  </footer>
+</body>
+
 </html>
