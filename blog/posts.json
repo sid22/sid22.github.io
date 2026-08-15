@@ -4,5 +4,11 @@
     "title": "Hello World",
     "date": "2025-12-25",
     "excerpt": "Welcome to my new blog. A fresh start with a simpler design."
+  },
+  {
+    "slug": "the-moral-question-in-science",
+    "title": "The Moral Question in Science",
+    "date": "2016-05-01",
+    "excerpt": "My first published article, from the college magazine — on the widening gap between modern science and the common person."
   }
 ]
